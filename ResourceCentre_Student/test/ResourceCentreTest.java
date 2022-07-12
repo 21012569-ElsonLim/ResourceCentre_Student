@@ -123,7 +123,7 @@ public class ResourceCentreTest {
 		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
 			
-		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebook);
+		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
 	}
 
 	@Test
@@ -134,7 +134,7 @@ public class ResourceCentreTest {
 		
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		
-		// normal
+		// normal // Test that an item can be loaned
 		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
 		assertTrue("Test if an available item is ok to loan?", ok);
 		assertFalse(camcorderList.get(0).getIsAvailable());
@@ -153,7 +153,7 @@ public class ResourceCentreTest {
 		
 		//error condition
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
-		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
+		assertFalse("Test that non-exsiting item is NOT ok to loan?", ok);
 
 	}
 	
